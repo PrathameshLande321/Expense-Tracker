@@ -1,0 +1,269 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #2e8b57, #a8d5ba);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  padding: 12px;
+  color: #1a202c;
+}
+
+
+.container {
+  width: 100%;
+  max-width: 420px;           
+  background: #fff;
+  border-radius: 22px;
+  padding: 20px 18px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+
+h1 {
+  text-align: center;
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+
+.currency-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.currency-container select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid #a8d5ba;
+  font-size: 0.95rem;
+}
+
+
+.balance-container {
+  background: linear-gradient(135deg, #a8d5ba, #7fbf90);
+  border-radius: 18px;
+  padding: 18px 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.balance-container h1 {
+  font-size: 1.9rem;
+  margin: 10px 0;
+  font-weight: 700;
+}
+
+
+.summary {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.income,
+.expenses {
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px;
+  text-align: center;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+.income p {
+  color: #059669;
+  font-weight: 700;
+}
+
+.expenses p {
+  color: #dc2626;
+  font-weight: 700;
+}
+
+/* ===== CHART ===== */
+.chart-container {
+  margin: 18px 0;
+  padding: 12px;
+  background: #f0f7f3;
+  border-radius: 18px;
+}
+
+.chart-container canvas {
+  width: 100% !important;
+  height: 220px !important;
+}
+
+
+.transaction-container h2 {
+  margin-bottom: 10px;
+}
+
+#transaction-list {
+  list-style: none;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.transaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  border-right: 4px solid;
+}
+
+.transaction.income {
+  border-right-color: #059669;
+}
+
+.transaction.expense {
+  border-right-color: #dc2626;
+}
+
+
+.form-container {
+  margin-top: 20px;
+  background: #f6f8fb;
+  padding: 16px;
+  border-radius: 18px;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid #e2e8f0;
+  font-size: 0.95rem;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #2e8b57, #3cb371);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+
+.type-toggle {
+  display: flex;
+  width: 100%;
+  gap: 14px;
+  margin-top: 5px;
+
+}
+
+
+.type-toggle button {
+  flex: 1;
+  padding: 9px 0;              
+  font-size: 0.95rem;        
+  font-weight: 600;
+  border-radius: 8px;         
+  background: #f2f2f2;
+  color: #111827;
+  border: 2px solid #3f3f46;
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+#income-btn:hover,
+#income-btn.active {
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  color: #ffffff;
+  border-color: #16a34a;
+
+ 
+  box-shadow:
+    0 3px 8px rgba(22, 163, 74, 0.25);
+}
+
+
+#expense-btn:hover,
+#expense-btn.active {
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+  color: #ffffff;
+  border-color: #dc2626;
+
+ 
+  box-shadow:
+    0 3px 8px rgba(220, 38, 38, 0.25);
+}
+
+
+.type-toggle button:active {
+  transform: scale(0.985);
+}
+
+
+
+
+
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px; /
+  }
+
+  .container {
+    padding: 18px 14px; /
+  }
+}
+
+
+@media (max-height: 480px) and (orientation: landscape) {
+  body {
+    padding: 8px;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 14px 14px;
+  }
+
+  .chart-container canvas {
+    height: 160px !important; 
+  }
+
+  #transaction-list {
+    max-height: 180px; 
+  }
+}
